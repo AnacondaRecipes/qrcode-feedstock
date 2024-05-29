@@ -27,6 +27,8 @@ requirements:
     - colorama # [win]
     - typing-extensions
     - pypng
+  run_constrained:
+    - pillow >=9.1.0
 
 test:
   imports:
