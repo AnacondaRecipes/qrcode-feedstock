@@ -42,7 +42,11 @@ about:
   home: https://github.com/lincolnloop/python-qrcode
   summary: QR Code image generator
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
+  description: A Quick Response code is a two-dimensional pictographic code used for its fast readability and comparatively large storage capacity. The code consists of black modules arranged in a square pattern on a white background.
+  dev_url: https://github.com/lincolnloop/python-qrcode
+  doc_url: https://github.com/lincolnloop/python-qrcode/blob/main/README.rst
 
 extra:
   recipe-maintainers:
