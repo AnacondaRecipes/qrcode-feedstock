@@ -12,18 +12,19 @@ source:
 
 build:
   number: 0
-  noarch: python
   entry_points:
     - qr = qrcode.console_scripts:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.6
-    - colorama
+    - python
+    - colorama # [win]
     - typing-extensions
     - pypng
 
