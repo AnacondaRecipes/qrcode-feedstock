@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ee2e23878eecc655371a466e1f7b5aaea1c137ecc543c01bb12af8e15b48f7b7
+  sha256: 35c3f2a4172b33136ab9f6b3ef1c00260dd2f66f858f24d88418a015f446506c
 
 build:
   number: 0
@@ -39,9 +39,7 @@ test:
     - qrcode.image
     - qrcode.image.base
     - qrcode.image.pure
-    - qrcode.image.styles.colormasks
-    - qrcode.image.styles.moduledrawers
-    - qrcode.image.styles.moduledrawers.base
+    - qrcode.image.styles
     - qrcode.main
     - qrcode.release
     - qrcode.util
