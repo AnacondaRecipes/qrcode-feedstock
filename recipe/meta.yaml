@@ -1,32 +1,29 @@
 {% set name = "qrcode" %}
-{% set version = "7.4.2" %}
-
+{% set version = "8.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/qrcode-{{ version }}.tar.gz
-  sha256: 9dd969454827e127dbd93696b20747239e6d540e082937c90f14ac95b30f5845
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 35c3f2a4172b33136ab9f6b3ef1c00260dd2f66f858f24d88418a015f446506c
 
 build:
   number: 0
   entry_points:
     - qr = qrcode.console_scripts:main
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  skip: true  # [py<39]
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - poetry-core
   run:
     - python
-    - colorama # [win]
-    - typing-extensions
-    - pypng
+    - colorama  # [win]
   run_constrained:
     - pillow >=9.1.0
 
@@ -36,9 +33,12 @@ test:
     - qrcode.image
   commands:
     - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest --pyargs qrcode.tests
     - qr --help
   requires:
     - pip
+    - pytest
 
 about:
   home: https://github.com/lincolnloop/python-qrcode
